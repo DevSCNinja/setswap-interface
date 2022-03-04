@@ -1,0 +1,284 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "contract IController",
+        "name": "_controller",
+        "type": "address"
+      },
+      {
+        "internalType": "contract ISlippageIssuanceModule",
+        "name": "_slippageIssuanceModule",
+        "type": "address"
+      },
+      {
+        "internalType": "contract IBasicIssuanceModule",
+        "name": "_basicIssuanceModule",
+        "type": "address"
+      },
+      { "internalType": "contract IERC20", "name": "_usdc", "type": "address" },
+      { "internalType": "uint256", "name": "_percentFee", "type": "uint256" }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "_assetAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "LogWithdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_token", "type": "address" },
+      { "internalType": "address", "name": "_spender", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "approve",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "basicIssuanceModule",
+    "outputs": [
+      {
+        "internalType": "contract IBasicIssuanceModule",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "controller",
+    "outputs": [
+      { "internalType": "contract IController", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISetToken",
+        "name": "_setToken",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amountOut", "type": "uint256" }
+    ],
+    "name": "getUsdcAmountInForFixedSetOffChain",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "totalUsdcAmountIn",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "usdcAmountInForComponentSets",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISetToken",
+        "name": "_setToken",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amountIn", "type": "uint256" }
+    ],
+    "name": "getUsdcAmountOutForFixedSetOffChain",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "totalUsdcAmountOut",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "usdcAmountOutForComponentSets",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISetToken",
+        "name": "_setToken",
+        "type": "address"
+      }
+    ],
+    "name": "initializeSet",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "contract ISetToken", "name": "", "type": "address" }
+    ],
+    "name": "initializedSets",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISetToken",
+        "name": "_setToken",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      {
+        "internalType": "uint256[]",
+        "name": "_maxAmountForComponentSets",
+        "type": "uint256[]"
+      },
+      { "internalType": "uint256", "name": "_maxAmountIn", "type": "uint256" }
+    ],
+    "name": "issueFixedSetFromUsdc",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "percentFee",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract ISetToken",
+        "name": "_setToken",
+        "type": "address"
+      },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" },
+      {
+        "internalType": "uint256[]",
+        "name": "_minAmountForComponentSets",
+        "type": "uint256[]"
+      },
+      { "internalType": "uint256", "name": "_minAmountOut", "type": "uint256" }
+    ],
+    "name": "redeemFixedSetForUsdc",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "slippageIssuanceModule",
+    "outputs": [
+      {
+        "internalType": "contract ISlippageIssuanceModule",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_percentFee", "type": "uint256" }
+    ],
+    "name": "updatePercentFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "usdc",
+    "outputs": [
+      { "internalType": "contract IERC20", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_assetAddress", "type": "address" }
+    ],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
